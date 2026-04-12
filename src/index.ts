@@ -1,4 +1,5 @@
 import { Client, GatewayIntentBits } from "discord.js";
+import { createServer } from "http";
 import { commands } from "./commands/index.js";
 import * as ready from "./events/ready.js";
 import * as interactionCreate from "./events/interactionCreate.js";
@@ -29,3 +30,11 @@ for (const event of events) {
 void commands;
 
 client.login(token);
+
+const port = process.env["PORT"] ? Number(process.env["PORT"]) : 3000;
+createServer((_req, res) => {
+  res.writeHead(200);
+  res.end("Bot en línea");
+}).listen(port, () => {
+  console.log(`Servidor HTTP escuchando en puerto ${port}`);
+});

@@ -3,9 +3,6 @@ import { createServer } from "http";
 import { commands } from "./commands/index.js";
 import * as ready from "./events/ready.js";
 import * as interactionCreate from "./events/interactionCreate.js";
-import * as guildMemberAdd from "./events/guildMemberAdd.js";
-import * as guildMemberRemove from "./events/guildMemberRemove.js";
-import * as shardResume from "./events/shardResume.js";
 
 const token = process.env["DISCORD_BOT_TOKEN"];
 const clientId = process.env["DISCORD_CLIENT_ID"];
@@ -19,12 +16,10 @@ const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.GuildMembers,
-    GatewayIntentBits.GuildPresences,
   ],
 });
 
-const events = [ready, interactionCreate, guildMemberAdd, guildMemberRemove, shardResume];
+const events = [ready, interactionCreate];
 
 for (const event of events) {
   if (event.once) {
@@ -36,7 +31,7 @@ for (const event of events) {
 
 async function registerCommands() {
   if (!clientId) {
-    console.warn("DISCORD_CLIENT_ID no está configurado — saltando registro de comandos.");
+    console.warn("DISCORD_CLIENT_ID no configurado — saltando registro de comandos.");
     return;
   }
   try {

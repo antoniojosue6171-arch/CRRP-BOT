@@ -28,7 +28,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   const civiles = interaction.options.getInteger("civiles", true);
   const moderadores = interaction.options.getInteger("moderadores", true);
 
-  const imagen = new AttachmentBuilder(join(__dirname, "../assets/encuesta-apertura.jpg"), { name: "encuesta-apertura.jpg" });
+  const imagen = new AttachmentBuilder(join(__dirname, "assets/encuesta-apertura.jpg"), { name: "encuesta-apertura.jpg" });
 
   const embed = new EmbedBuilder()
     .setColor(0xffa500)

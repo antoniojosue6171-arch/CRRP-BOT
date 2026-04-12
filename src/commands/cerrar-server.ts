@@ -10,7 +10,7 @@ export const data = new SlashCommandBuilder()
   .setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild);
 
 export async function execute(interaction: ChatInputCommandInteraction) {
-  const imagen = new AttachmentBuilder(join(__dirname, "../assets/server-off.jpg"), { name: "server-off.jpg" });
+  const imagen = new AttachmentBuilder(join(__dirname, "assets/server-off.jpg"), { name: "server-off.jpg" });
 
   const embed = new EmbedBuilder()
     .setColor(0xff0000)

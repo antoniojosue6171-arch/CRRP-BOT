@@ -18,7 +18,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     .setDescription(
       "¡Atención a todos! El servidor ya está ABIERTO 🔓\n" +
       "Vengan a rolear y pasarla bien con la mejor experiencia 💯🔥\n\n" +
-      "📌 Código para unirse: **\"CRRP\"**\n\n" +
+      "📌 Código para unirse: **\"costarica\"**\n\n" +
       "No te lo pierdas, hay rol activo, diversión y muchas oportunidades 👀🎭\n" +
       "¡Los esperamos dentro!"
     )

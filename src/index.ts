@@ -25,8 +25,14 @@ client.once(Events.ClientReady, async (readyClient) => {
   try {
     const rest = new REST().setToken(token!);
     const commandData = [...commands.values()].map((cmd) => cmd.data.toJSON());
-    await rest.put(Routes.applicationCommands(readyClient.user.id), { body: commandData });
-    console.log(`✅ ${commandData.length} comandos registrados en Discord.`);
+
+    for (const guild of readyClient.guilds.cache.values()) {
+      await rest.put(
+        Routes.applicationGuildCommands(readyClient.user.id, guild.id),
+        { body: commandData }
+      );
+      console.log(`✅ ${commandData.length} comandos registrados en: ${guild.name}`);
+    }
   } catch (error) {
     console.error("Error registrando comandos:", error);
   }

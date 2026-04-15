@@ -18,6 +18,7 @@ import * as apagarBot from "./apagar-bot.js";
 import * as encenderBot2 from "./encender-bot-2.js";
 import * as registrarCedula from "./registrar-cedula.js";
 import * as calificarStaff from "./calificar-staff.js";
+import * as paseDeLista from "./pase-de-lista.js";
 
 export interface Command {
   data: SlashCommandBuilder;
@@ -27,7 +28,7 @@ export interface Command {
 const commandModules: Command[] = [
   ping, help, serverinfo, userinfo, avatar, clear, kick, ban,
   abrirServer, cerrarServer, abrirVotacion, cerrarVotacion, banear, sancionar,
-  encenderBot, apagarBot, encenderBot2, registrarCedula, calificarStaff,
+  encenderBot, apagarBot, encenderBot2, registrarCedula, calificarStaff, paseDeLista,
 ];
 
 export const commands = new Collection<string, Command>();
